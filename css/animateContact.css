@@ -1,0 +1,13 @@
+h1.startAnimate {
+    animation: startAnimate 2s ease-in-out 4;
+}
+
+@keyframes startAnimate {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100px);
+    }
+}
