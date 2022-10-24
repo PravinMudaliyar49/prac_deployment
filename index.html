@@ -1,12 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing page</title>
+    <title>Slicicious</title>
+    <link rel="stylesheet" href="./css/util.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- As module pattern would be just too much for this complete Web Dev course, just create a new JS file for each feature. -->
+    <script src="./js/navbar.js" defer></script>
+    <script src="./js/carousel.js" defer></script>
+    <script src="./js/menu.js" defer></script>
+    <script src="./js/testimonials.js" defer></script>
+    <script src="./js/modal.js" defer></script>
+    <script src="./js/smoothRevealing.js" defer></script>
 </head>
+
 <body>
-    
+    <div class="follow_along_background | follow_along_background_styling"></div>
+    <div class="void_space hidden"></div>
+    <header class="header | header_styling">
+        <nav class="navigation_bar">
+            <div class="logo_container">
+                <a href="#">
+                    <img src="./img/slicicious-logo-1.png" alt="Slicicious logo" class="restaurant_logo">
+                </a>
+            </div>
+            <ul class="nav_items_container">
+                <li class="nav_item"><a class="nav_link" href="#section--awards">Achievements</a></li>
+                <li class="nav_item"><a class="nav_link" href="#section--menu">Menu</a></li>
+                <li class="nav_item"><a class="nav_link" href="#section--testimonials">Testimonials</a></li>
+                <li class="nav_item active"><a class="btn | btn_modal" href="#">Order now</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero_section | hero_section_styling">
+            <div class="hero_content_container">
+                <h1 class="hero_title">Slicicious Welcomes You</h1>
+                <p class="hero_description">Take a look at what all we've got for you . . .</p>
+            </div>
+            <div class="explore_more_container">
+                <a href="#">Explore <span class="down_arrow">&darr;</span></a>
+            </div>
+        </section>
+        <!-- Funky carousel: -->
+        <section class="section section--1" id="section--awards">
+            <div class="section_title">
+                <h2 class="section_heading">Something that makes us standout...</h2>
+                <p class="section_intro">The only way to climb at the top: customer satisfaction. That's what has led us to
+                    where we are.</p>
+            </div>
+            <div class="awards_container">
+                <div class="awards_description_container">
+                    <ul class="awards_list_container">
+                        <li>
+                            <span class="award_name">Restaurant of the year 2020-2021</span> => Lorem ipsum dolor sit
+                            amet consectetur, adipisicing elit. Temporibus laboriosam velit, molestiae
+                        </li>
+                        <li>
+                            <span class="award_name">Baker of the year 2019-2020</span> => Lorem ipsum dolor sit amet
+                            consectetur, adipisicing elit. Temporibus laboriosam velit, molestiae
+                        </li>
+                        <li>
+                            <span class="award_name">QSR chain of the year 2021-2022</span> => Lorem ipsum dolor sit
+                            amet consectetur, adipisicing elit. Temporibus laboriosam velit, molestiae
+                        </li>
+                        <li>
+                            <span class="award_name">Independent restaurant of the year 2021-2022</span> => Lorem ipsum
+                            Temporibus laboriosam velit, molestiae
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex_center | carousel_container">
+                    <div class="flex_center | slide | slide_styling slide-1 left_extreme"></div>
+                    <div class="flex_center | slide | slide_styling slide-2 prev_slide"></div>
+                    <div class="flex_center | slide | slide_styling slide-3 active_slide"></div>
+                    <div class="flex_center | slide | slide_styling slide-4 next_slide"></div>
+                    <div class="flex_center | slide | slide_styling slide-5 right_extreme"></div>
+                </div>
+            </div>
+        </section>
+        <!-- "Menu" using Tabbed component: -->
+        <section class="section section--2" id="section--menu">
+            <div class="section_title">
+                <h2 class="section_heading">Our food items that are worth boasting...</h2>
+                <p class="section_intro">The mission is simple: serve delicious and affordable food that showcases our
+                    vision to revolutionize the industry.</p>
+            </div>
+            <div class="menu_container">
+                <div class="menu_tabs_container">
+                    <button class="btn | menu_tab | menu_tab_styling menu_tab--active" data-tab="1">
+                        <!-- <span class="bold">M</span>ost popular -->
+                        <span class="bold">P</span>opular
+                    </button>
+                    <button class="btn | menu_tab | menu_tab_styling" data-tab="2">
+                        <span class="bold">S</span>ides
+                    </button>
+                    <button class="btn | menu_tab | menu_tab_styling" data-tab="3">
+                        <span class="bold">D</span>rinks
+                    </button>
+                </div>
+                <div class="menu_content_container">
+                    <div data-menu-content="1" class="menu_content | menu_content_styling menu_content-1">
+                        <div class="food_items">
+                            <h5 class="food_title | food_title_styling">Egg</h5>
+                            <div class="dish">
+                                <h5 class="dish_title">Masala omelette</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                            <div class="dish">
+                                <h5 class="dish_title">Egg gravy</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                            <div class="dish">
+                                <h5 class="dish_title">Egg fried rice</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                        </div>
+                        <div class="food_items">
+                            <h5 class="food_title | food_title_styling">Pizza</h5>
+                            <div class="dish">
+                                <h5 class="dish_title">Pepperoni Pizza</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                            <div class="dish">
+                                <h5 class="dish_title">Cheesy Vegetable Pizza</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                            <div class="dish">
+                                <h5 class="dish_title">Tandoori Paneer Pizza</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-menu-content="2" class="menu_content | menu_content_styling menu_content-2 hidden">
+                        <div class="food_items">
+                            <h5 class="food_title | food_title_styling">Salads</h5>
+                            <div class="dish">
+                                <h5 class="dish_title">Tomato Salad with Mint</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                            <div class="dish">
+                                <h5 class="dish_title">Sprouted Mung Bean Salad</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                            <div class="dish">
+                                <h5 class="dish_title">Avocado Salad</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                        </div>
+                        <div class="food_items">
+                            <h5 class="food_title | food_title_styling">Dumplings</h5>
+                            <div class="dish">
+                                <h5 class="dish_title">Chilly Momo</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                            <div class="dish">
+                                <h5 class="dish_title">Tandoori Momo</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                            <div class="dish">
+                                <h5 class="dish_title">Kesari Modak</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-menu-content="3" class="menu_content | menu_content_styling menu_content-3 hidden">
+                        <div class="food_items">
+                            <h5 class="food_title | food_title_styling">Soft Drinks</h5>
+                            <div class="dish">
+                                <h5 class="dish_title">Diet Coke</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                            <div class="dish">
+                                <h5 class="dish_title">Coke Zero</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                            <div class="dish">
+                                <h5 class="dish_title">Coca Cola</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                        </div>
+                        <div class="food_items">
+                            <h5 class="food_title | food_title_styling">Beverages</h5>
+                            <div class="dish">
+                                <h5 class="dish_title">Lassi</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                            <div class="dish">
+                                <h5 class="dish_tile">Masala Chaas</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                            <div class="dish">
+                                <h5 class="dish_tile">Neera</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, recusandae!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Follow along dropdown for "Tesimonials": -->
+        <section class="section section--3" id="section--testimonials">
+            <div class="section_title">
+                <h2 class="section_heading">Here's what our Happy clients wish to say...</h2>
+                <p class="section_intro">The quality we serve is what makes the guests want to return week after
+                    week.</p>
+            </div>
+            <div class="testimonials_container">
+                <div class="testimonial">
+                    <div class="testimonial_header">
+                        <div class="ratings_container">&#9734; &#9734; &#9734; &#9734; &#9733;</div>
+                        <div class="testimonial_profile_container">
+                            <img class="testimonial_photo | testimonial_photo_styling" src="./img/profile-avatar.png"
+                                alt="testimonial_avatar">
+                            <div class="testimonal_identity">
+                                <h5>Gordon Ramsay</h5>
+                                <p>Johnstone, UK</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial_dropdown | testimonial_dropdown_styling">
+                        <p>Thank you for the dinner last night. It was amazing!! I have to say it’s the best meal I've
+                            had in quite some time. You will definitely be seeing more of me eating at your
+                            establishment.
+                            My wife was very impressed and we can’t wait for our parents to come visit so that we can
+                            share our new favorite place with them.</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial_header">
+                        <div class="ratings_container">&#9734; &#9734; &#9734; &#9734; &#9733;</div>
+                        <div class="testimonial_profile_container">
+                            <img class="testimonial_photo | testimonial_photo_styling" src="./img/profile-avatar.png"
+                                alt="testimonial_avatar">
+                            <div class="testimonal_identity">
+                                <h5>Virat Kohli</h5>
+                                <p>Delhi, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial_dropdown | testimonial_dropdown_styling">
+                        <p>WOW!!! What an outstanding dinner you prepared on the Friday evening!!! It was
+                            an honor for me to be invited and experience firsthand your incredible culinary gift!
+                            Mozzarella Pizza seems soooooooo inadequate!
+                        </p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial_header">
+                        <div class="ratings_container">&#9734; &#9734; &#9734; &#9734; &#9733;</div>
+                        <div class="testimonial_profile_container">
+                            <img class="testimonial_photo | testimonial_photo_styling" src="./img/profile-avatar.png"
+                                alt="testimonial_avatar">
+                            <div class="testimonal_identity">
+                                <h5>Park Jimin</h5>
+                                <p>Busan, S Korea</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial_dropdown | testimonial_dropdown_styling">
+                        <p>Everyone had a wonderful time at <strong>The Slicicious</strong> last night.
+                            As expected, the food was delicious and our servers were so friendly and helpful – we loved
+                            them! It was a delightful experience all round. Thank you so much for hosting us. We hope we
+                            can come back again soon.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Maybe for "lazy loading": Have images of social-media, etc. and show lazy loading -->
+        <!-- <section class="section section--3" id="section--contact">
+            <div class="section_title">
+                <h2 class="section_heading">Help us know you better...</h2>
+                <p class="section_intro">Get in touch with us to understand how we became the leading marketer, with 95% customer retention rate via social links.</p>
+            </div>
+        </section> -->
+    </main>
+    <footer class="footer | footer_styling" id="follow--footer">
+        <div class="following_media">
+            <div class="logo_container">
+                <img style="background-color: transparent;" src="./img/slicicious-logo-2.png" alt="Slicicious logo">
+            </div>
+            <div class="subscribe">
+                <h6 class="subscribe_title">Subscribe</h6>
+                <p class="subscribe_description">Join our mailing list to receive updates regarding
+                    <strong>Slicicious</strong> products and services
+                </p>
+                <form>
+                    <label for="email">
+                        <input class="subscribe_email_input" type="email" id="email" placeholder="Email address"> &rarr;
+                    </label>
+                </form>
+            </div>
+            <div class="social_media">
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">Facebook</a>
+            </div>
+        </div>
+        <!-- <div class="opening_hours"></div> -->
+        <div class="footer_extras">
+            <ul class="help">
+                <li class="footer_extras_title">Help</li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Delivery</a </li>
+                <li><a href="#">Pick ups</a></li>
+                <li><a href="#">Job openings</a></li>
+            </ul>
+            <ul class="general">
+                <li class="footer_extras_title">General</li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Dine</a></li>
+                <li><a href="#">Our history</a></li>
+            </ul>
+            <ul class="info">
+                <li class="footer_extras_title">Info</li>
+                <li><a href="#">Opening hours</a></li>
+                <li><a href="#">Slicicious locations</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">Guides</a></li>
+                <li><a href="#">News</a></li>
+            </ul>
+            <p class="footer_copyright"> <sup>&copy;</sup> Copyright by <a href="#" class="author_footer">Pravin
+                    Mudaliyar</a>.</p>
+        </div>
+    </footer>
+    <div class="modal | modal_styling | invisible xTranslated_modal">
+        <h2 class="modal_title">Let us know the mouth-watering dish you wish to enjoy</h2>
+        <form class="modal_form | modal_form_styling">
+            <label for="recipe-name">
+                Recipe <input class="modal_form_input" type="text" id="recipe-name">
+            </label>
+            <label for="quantity">
+                Quantity <input class="modal_form_input" type="number" id="quantity">
+            </label>
+            <label for="address">
+                Address <textarea class="modal_form_input" id="address" cols="22"
+                    placeholder="Enter your home address"></textarea>
+            </label>
+            <input type="submit" class="btn order_btn" value="Order &rarr;">
+        </form>
+    </div>
+    <div class="overlay | overlay_styling | invisible">
+        <div class="close_modal_btn">&times;</div>
+    </div>
 </body>
+
 </html>

@@ -1,0 +1,846 @@
+/* TODO: Separation between styling classes and layout classes */
+/* TODO: Upgrade typography and color scheme */
+/* TODO: How to achieve a complex 2-column layout using flexbox. Check K_P flexbox tutorials */
+
+
+/* Navbar */
+.void_space {
+    height: var(--header-height);
+}
+
+.header {
+    height: var(--header-height);
+    width: 100%;
+    z-index: 50;
+}
+
+.header_styling {
+    font-weight: var(--fw-bold);
+    font-family: var(--ff-secondary);
+    padding: 0 1em;
+    color: var(--clr-primary-100);
+    background-color: var(--clr-secondary-400);
+    /* transition: background-color 800ms cubic-bezier(1,0,0,1); */
+}
+
+/* REMEMBER: Consider not having this sticky effect for the promotion video, as it looks messy! */
+.header.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--clr-primary-100);
+    color: var(--clr-secondary-400);
+    box-shadow: var(--shadow-2);
+    animation: sticky_nav_animation 1000ms ease-in-out 1;
+}
+
+.navigation_bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.navigation_bar .logo_container {
+    width: 20%;
+    height: 100%;
+}
+
+.restaurant_logo {
+    max-height: 100%;
+    transition: opacity var(--transition-1);
+}
+
+.nav_items_container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav_item {
+    transition: transform var(--transition-1),
+        opacity var(--transition-1);
+}
+
+.nav_item:nth-last-child(1) {
+    margin-left: 15%;
+}
+
+.btn_modal {
+    border: 1px solid var(--clr-primary-100);
+    border-radius: 20px;
+    padding: .8em 2em;
+}
+
+.btn_modal:hover {
+    color: var(--clr-light-100);
+    background-color: var(--clr-primary-300);
+}
+
+/*
+Works in Chrome but not in FireFox:
+.nav_item:has(.btn_modal:active) {
+    transform: translateY(10px);
+} */
+
+.nav_item.active:active {
+    transform: translateY(5px);
+}
+
+.header.sticky .btn_modal {
+    border: 1px solid var(--clr-secondary-400);
+}
+
+/* Hero section: */
+.hero_section {
+    display: flex;
+    position: relative;
+    height: calc(101vh - var(--header-height));
+}
+
+.hero_section_styling {
+    padding: 2em;
+    background-image: url(../img/hero-image.png);
+    background-size: cover;
+    background-position: bottom;
+}
+
+.hero_content_container {
+    position: absolute;
+    left: 10%;
+    bottom: 30%;
+    color: white;
+}
+
+.hero_title {
+    font-size: 4rem;
+    font-weight: var(--fw-light);
+
+    /* Only for the promotional video (as font-weight 100 wasn't imported from the Google-fonts): */
+    font-weight: 100;
+}
+
+.hero_description {
+    font-size: x-large;
+}
+
+.explore_more_container {
+    text-align: center;
+    width: 100%;
+    align-self: flex-end;
+    color: rgba(0, 0, 0, .7);
+    font-size: 1.5rem;
+    font-weight: var(--fw-semi-bold);
+}
+
+.down_arrow {
+    /* For transform to work: */
+    display: inline-block;
+    animation: updown_animation 2000ms ease infinite;
+    /* We're able to observe the heartbeat kind of effect cuz in the @keyframes, we're resetting to transform. And over here, it again scales back. */
+    transform: scale(2);
+}
+
+/* General structure: */
+/* .section:not(.footer) { */
+.section {
+    padding: 8em 6em;
+    border-top: 2px solid #ddd;
+    transition: transform 1200ms ease-in-out,
+        opacity 2000ms ease-in-out;
+}
+
+.section--hidden {
+    /* transform: translateY(15rem); */
+    transform: translateY(10rem);
+    opacity: 0;
+}
+
+.section_title {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.section_heading {
+    font-size: 3rem;
+    font-weight: var(--fw-regular);
+    color: var(--clr-headings);
+}
+
+.section_intro {
+    font-size: larger;
+    font-family: var(--ff-secondary);
+    text-align-last: center;
+}
+
+/* Awards section: */
+/* https://www.restaurantindia.org/congress/award_registration.php */
+/* https://www.restaurantindia.in/awards/2022/delhi/ */
+
+.awards_container {
+    display: flex;
+}
+
+.awards_description_container {
+    width: var(--awards-description-container-width);
+}
+
+.awards_list_container {
+    /* border-left: 5px solid red;
+    border-radius: var(--border-rad1); */
+    border-left: 5px solid var(--clr-secondary-200);
+    border-radius: 15px;
+    padding-left: 2.5em;
+    padding-right: 1em;
+    line-height: 1.7;
+}
+
+.awards_list_container li {
+    list-style-type: '🏆';
+    padding: 0 .4em;
+    margin-bottom: .7rem;
+    font-family: var(--ff-cursive);
+    font-size: 1.3rem;
+}
+
+.award_name {
+    font-weight: var(--fw-bold);
+    text-decoration: 2px underline black;
+    font-family: var(--ff-secondary);
+    font-size: 1rem;
+}
+
+/* Carousel: */
+
+.carousel_container {
+    position: relative;
+    width: calc(100% - var(--awards-description-container-width));
+}
+
+.slide {
+    position: absolute;
+    height: 25rem;
+    width: 43%;
+}
+
+.slide_styling {
+    background-color: var(--clr-primary-100);
+    color: var(--clr-primary-300);
+    border-radius: var(--border-rad1);
+    outline: 3px solid;
+    outline-offset: -10px;
+    transition: transform 800ms cubic-bezier(.45, 1.27, .86, 1.37);
+    background-size: contain;
+    background-position: center;
+}
+
+.slide-1 {
+    background-image: url(../img/award-1.png);
+}
+
+.slide-2 {
+    background-image: url(../img/award-2.png);
+}
+
+.slide-3 {
+    background-image: url(../img/award-3.png);
+    background-size: cover;
+    background-position: top;
+}
+
+.slide-4 {
+    background-image: url(../img/award-4.png);
+}
+
+.slide-5 {
+    background-image: url(../img/award-5.png);
+}
+
+.active_slide {
+    z-index: 2;
+}
+
+.prev_slide {
+    /* Didn't make a CSS variable for this repetition cuz the value of this declaration is -ve whereas +ve in the next declaration. */
+    transform: translateX(-250px) scale(0.7);
+    opacity: .6;
+    cursor: pointer;
+}
+
+.next_slide {
+    transform: translateX(250px) scale(0.7);
+    opacity: .6;
+    cursor: pointer;
+}
+
+/* Menu + Tabbed components: */
+.menu_container {
+    display: flex;
+    align-items: center;
+    width: 95%;
+}
+
+.menu_tabs_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30rem;
+    width: var(--menu-tabs-container);
+}
+/* Inspect the "menu_tabs_container" to understand how the tabs are structured.  */
+
+.menu_tab {
+    position: relative;
+    /* Even though I don't prefer giving width to a button, this design needs to have the button of same sizes!	 */
+    width: 75%;
+}
+
+.menu_tab_styling {
+    background-color: #a9a9a9;
+    padding: 1em 2em;
+    border-radius: 10px;
+    color: white;
+    transform: rotate(-90deg);
+    border-radius: 100% 100% 0 0;
+    font-size: larger;
+    opacity: .6;
+    /* transition: opacity 400ms cubic-bezier(.6, .04, .98, .34); */
+}
+
+.menu_tab::before {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 20px;
+    background-color: black;
+    right: 50%;
+    top: -10px;
+    transform: translateX(50%);
+    border-radius: 10px 10px 0 0;
+}
+
+.menu_tab--active {
+    opacity: 1;
+    border-bottom: 5px solid rgb(71, 62, 62, .7);
+
+    /* Have the transition-duration below same as that of JS: */
+    transition: border-bottom 700ms cubic-bezier(0, 1.1, 1, 1.86);
+
+    /* transform: rotate(-90deg) translateY(40px); */
+}
+
+/* .menu_tab--active::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: rgb(71, 62, 62, .7);
+    left: 0;
+    bottom: 0;
+} */
+
+.bold {
+    font-weight: bolder;
+}
+
+/* https://www.fatchoynyc.com/menu */
+/* https://basil-demo.squarespace.com/menu-basil */
+/* https://pacific-demo.squarespace.com/?nochrome=true */
+/* https://www.wix.com/demone2/italian-cuisine/menu */
+/* https://preview.themeforest.net/item/giardino-an-italian-restaurant-cafe-wordpress-theme/full_screen_preview/23069531 */
+/* https://www.wix.com/demone2/vegetarian-restauran/menu */
+/* https://www.wix.com/demone2/mixology-bar/menu */
+
+.menu_content_container {
+    width: calc(100% - var(--menu-tabs-container));
+    align-self: stretch;
+}
+
+.menu_content {
+    /* position: relative; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu_content_styling {
+    color: white;
+    padding: 1em;
+    border-radius: 5px;
+
+    /* Just for the promotional video: */
+    margin-left: -7%;
+    
+    background-size: cover;
+    background-position: center;
+    transition: opacity var(--transition-1);
+}
+
+.menu_content-1 {
+    background-image: url(../img/food-1.png);
+}
+
+.menu_content-2 {
+    background-image: url(../img/food-2.png);
+}
+
+.menu_content-3 {
+    background-image: url(../img/food-3.png);
+}
+
+.menu_content.transparent {
+    opacity: 0;
+}
+
+.food_items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.food_title {
+    position: relative;
+    width: 100%;
+}
+
+.food_title_styling {
+    font-size: xx-large;
+    text-align: center;
+    margin: 1rem 0 2rem;
+}
+
+.food_title::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 20%;
+    background-color: aqua;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+}
+
+.dish {
+    width: 33%;
+    text-align-last: center;
+}
+
+.dish_title {
+    text-align: center;
+    font-size: large;
+}
+
+/* Testimonials and follow-along: */
+.follow_along_background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    /* height: 10rem;
+    width: 10rem; */
+}
+
+.follow_along_background_styling {
+    background-color: var(--clr-light-100);
+    box-shadow: var(--shadow-2);
+    opacity: 0;
+    border-radius: 10px;
+    /* transition: transform var(--transition-1),
+    height var(--transition-1), width var(--transition-1), opacity var(--transition-1); */
+    transition: all 0.6s, opacity 0.4s, transform 0.5s;
+}
+
+.follow_along_background.open {
+    opacity: 1;
+}
+
+.follow_along_background::before {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-bottom: 1rem solid white;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section--3 {
+    /* TEST: */
+    height: 140vh;
+}
+
+.testimonials_container {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.testimonials_container::before {
+    content: '\003C';
+    position: absolute;
+    font-size: 3rem;
+    left: -7%;
+    top: 20%;
+    cursor: pointer;
+}
+
+.testimonials_container::after {
+    content: '\003E';
+    position: absolute;
+    font-size: 3rem;
+    right: -7%;
+    top: 20%;
+    cursor: pointer;
+}
+
+.testimonial {
+    position: relative;
+    width: 100%;
+    /* Increased the bottom padding of this element so that the space between the "testimonial_header" and "testimonial_dropdown" increases. */
+    padding: 0 .5em 1.5em;
+    cursor: pointer;
+
+    /* Margin collapse doesn't occur with flex-box: */
+    /* margin: 0 .5rem; */
+}
+
+.testimonial_header {
+    padding: 2em;
+    border: 2px solid var(--clr-primary-300);
+    border-radius: 5px;
+}
+
+.ratings_container {
+    /* color: rgb(232 68 68); */
+    color: var(--clr-secondary-200);
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.testimonial_profile_container {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.testimonial_profile_container>* {
+    width: 100%;
+}
+
+.testimonial_photo {
+    height: 3rem;
+    width: 3rem;
+}
+
+.testimonial_photo_styling {
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.testimonal_identity {
+    font-size: large;
+}
+
+.testimonial_dropdown {
+    position: absolute;
+
+    /* width: 150%; */
+    /* For transition to work: */
+    min-width: 150%;
+
+    left: 50%;
+    top: 100%;
+    display: none;
+}
+
+.testimonial_dropdown_styling {
+    text-align: center;
+    padding: 1em;
+    transform: translateX(-50%);
+    opacity: 0;
+
+    /* LEARN: */
+    cursor: text;
+
+    transition: opacity var(--transition-1);
+}
+
+.testimonial_enter .testimonial_dropdown {
+    display: block;
+}
+
+.testimonial_dropdown_visible .testimonial_dropdown {
+    opacity: 1;
+}
+
+/* LEARN: For us to see the follow_along effect: */
+.testimonial:nth-of-type(2) .testimonial_dropdown {
+    min-width: 165%;
+}
+
+.testimonial:nth-of-type(3) .testimonial_dropdown {
+    min-width: 110%;
+}
+
+/* https://farmacylondon.com/ */
+/* https://burgershop.templates.editmysite.com/ */
+/* https://thebullandlast.co.uk/pages/contact */
+/* https://www.sawmillbrewery.co.nz/pages/smoko-room */
+/* https://featherandbone.com.hk/ */
+
+/* Footer */
+.footer {
+    display: flex;
+    height: 100vh;
+}
+
+.footer_styling {
+    /* background-color: rgba(0, 0, 0, 0.742); */
+    background-color: var(--clr-secondary-400);
+    color: var(--clr-light-100);
+    padding: 7em 2em 3em;
+}
+
+.footer>* {
+    width: 100%;
+    /* border: 1px solid green; */
+}
+
+.following_media {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.following_media>* {
+    flex-shrink: 0;
+}
+
+.footer .logo_container {
+    width: 50%;
+}
+
+.subscribe {
+    width: 50%;
+    /* margin: auto; */
+    padding-top: 2.5em;
+}
+
+.subscribe_title {
+    font-size: larger;
+    margin: .5rem 0;
+}
+
+.subscribe_description {
+    font-size: smaller;
+}
+
+.subscribe_email_input {
+    width: 70%;
+    padding: 1em;
+    font-weight: var(--fw-bold);
+    margin-top: 1rem;
+    background: none;
+    color: white;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+}
+
+.subscribe_email_input::placeholder {
+    color: white;
+}
+
+.subscribe_email_input:focus {
+    border: 1px solid white;
+}
+
+.social_media {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+
+.footer_extras {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 2em 2.5em 0;
+}
+
+.footer_extras_title {
+    font-size: larger;
+    font-weight: var(--fw-semi-bold);
+    margin-bottom: 1rem;
+}
+
+.footer_extras li {
+    margin: .5rem 0;
+}
+
+.footer a:hover {
+    color: rgba(255, 255, 255, 0.584);
+}
+
+.footer_copyright {
+    width: 100%;
+    flex-shrink: 0;
+    align-self: flex-end;
+    text-align: center;
+}
+
+.author_footer {
+    text-decoration: 2px underline;
+    font-weight: var(--fw-bolder);
+}
+
+/* Modal and the overlay */
+/* Goal: Without giving a height to the modal, the content should be at the center of page. */
+.modal {
+    position: fixed;
+    width: 55vw;
+    /* padding: 30em;
+    height: 30rem; */
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+}
+
+.modal_styling {
+    background-color: black;
+    background-image: url(../img/food-4.png);
+    transform: translate(-50%, -50%);
+    padding: 1em 2em 3em;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    color: white;
+    text-align-last: center;
+    transition: opacity 600ms ease-in-out,
+        transform 400ms ease-in-out;
+}
+
+.modal_title {
+    font-size: xx-large;
+    margin-bottom: 1rem;
+}
+
+.modal_form {
+    width: 60%;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal_form_styling {
+    padding: 1em;
+    border: 1px solid white;
+}
+
+.modal_form label {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.modal_form_input {
+    margin: 1rem 0;
+    padding: .5em 1em;
+    font-weight: var(--fw-semi-bold);
+    font-size: 1rem;
+}
+
+.order_btn {
+    border: 3px solid white;
+    color: var(--clr-light-100);
+    padding: .7em 1.4em;
+    width: 70%;
+    margin: auto;
+    font-size: large;
+    font-weight: var(--fw-semi-bold);
+    margin-top: 1.5rem;
+}
+
+.order_btn:hover {
+    background-color: rgba(255, 255, 255, 0.452);
+    background-image: linear-gradient(var(--linear-gradient-direction), white, grey);
+    color: black;
+}
+
+.overlay {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 70;
+    top: 0;
+    left: 0;
+    transition: opacity var(--transition-1);
+}
+
+.overlay_styling {
+    background-color: var(--clr-secondary-400-opacity);
+    backdrop-filter: blur(3px);
+}
+
+.close_modal_btn {
+    position: absolute;
+    right: 3%;
+    top: 0;
+    font-size: 5rem;
+    cursor: pointer;
+    color: white;
+}
+
+@keyframes updown_animation {
+    40% {
+        transform: translateY(15px);
+    }
+
+    80% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes sticky_nav_animation {
+    25% {
+        background-color: var(--clr-primary-300);
+    }
+
+    60% {
+        background-color: rgba(255, 255, 255, 0.235);
+    }
+
+    100% {
+        background-color: var(--clr-primary-500);
+    }
+}
+
+/* JS specific classes: */
+
+/* .hover_fadeout {
+    opacity: .5;
+    transform: scale(.9);
+} */
+
+.hidden {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.xTranslated_modal {
+    transform: translate(-120%, -50%);
+}

@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Great+Vibes&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,400&display=swap');
+
+*,
+*::before,
+*::after {
+    /* margin: 0;
+    padding: 0; */
+    box-sizing: border-box;
+}
+
+:root {
+    /*
+    ff-primary, ff-serif, fw-n, fw-m, fw-b, fs-1, fs-2, fs-h1(h1 tag), fs-p(p tag).
+    */
+    --ff-primary: 'Poppins', sans-serif;
+    --ff-secondary: 'Aclonica', sans-serif;
+    --ff-cursive: 'Great Vibes', cursive;
+
+    --clr-light-100: white;
+
+    /* TODO: Changes made here should be copied to Notion's util-file: */
+
+    --clr-primary-100: rgb(245, 234, 219);
+    --clr-primary-200: rgba(205, 181, 117, .3);
+    --clr-primary-300: rgb(205, 181, 117);
+    --clr-primary-400: rgba(106, 109, 90, .6);
+    --clr-primary-500: rgb(106, 109, 90);
+
+    --clr-secondary-100: rgb(234, 133, 86, .5);
+    --clr-secondary-200: rgb(234, 133, 86);
+    --clr-secondary-300: rgb(161, 92, 61);
+    --clr-secondary-300-opacity: rgb(161, 92, 61, .5);
+    --clr-secondary-400: rgb(64, 63, 60);
+    --clr-secondary-400-opacity: rgb(64, 63, 60, .5);
+
+    --clr-headings: var(--clr-secondary-300);
+    --clr-paragraphs: rgb(91, 91, 87);
+
+    /* --clr-accent-500: red;
+    --clr-accent-200: green; */
+
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+    --fw-bolder: 900;
+
+    /* 
+    --fs-300: 0.8rem;
+    --fs-body: var(--fs-400);
+    --fs-primary-heading: var(--fs-800);
+    --fs-secondary-heading: var(--fs-700);
+    --fs-nav: var(--fs-500);
+    --fs-button: var(--fs-300);
+    */
+
+    --border-rad1: 10px;
+
+    --border1: 2px solid rgba(0, 0, 0, 0.082);
+
+    --transition-1: 400ms ease-in-out;
+
+    --shadow-1: 0 6px 0 0 rgba(0, 0, 0, 0.196);
+    --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --monochrome-shadow: 0 2px 7px rgba(255, 255, 255, 0.4);
+
+    --linear-gradient-direction: to top right;
+    --gradient-primary: linear-gradient(var(--linear-gradient-direction), var(--clr-primary-background-100), var(--clr-primary-background-200));
+    --gradient-secondary: linear-gradient(var(--linear-gradient-direction), var(--clr-secondary-100), var(--clr-secondary-background-300));
+
+    --header-height: 13vh;
+    --awards-description-container-width: 40%;
+    --menu-tabs-container: 20%;
+}
+
+/* html {
+    font-size: 62.5%;  .. Even used in Jonas sir's Bankist source code.
+} */
+
+html,
+body {
+    min-height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--ff-primary);
+    /* background-image: var(--gradient-primary); */
+    background-color: var(--clr-primary-100);
+    /* text-shadow: 4px 4px 4px #aaa; */
+}
+
+/* Make images easier to work with (Andy bell reset) */
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.flex_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    border: none;
+    /* outline: none; */
+    background: none;
+    line-height: 1;
+
+    cursor: pointer;
+
+    /* For background-color to change swiftly when focused: */
+    transition: all 0.3s;
+}
+
+/* .btn:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+} */
+
+.input {
+    border: none;
+    border-radius: var(--border-rad1);
+    padding: 4px;
+    outline: none;
+    transition: all 300ms ease-in-out;
+    /* Cuz the transition is applied to "all", even outline will be transitioned */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    text-overflow: ellipsis;
+}
+
+.input:focus {
+    outline: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.749);
+}
